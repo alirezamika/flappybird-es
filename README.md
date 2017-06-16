@@ -14,7 +14,7 @@ After ~5000 iterations, it won't lose!
 - [tensorflow](https://www.tensorflow.org/)
 - [keras](https://github.com/fchollet/keras)
 - [evostra](https://github.com/alirezamika/evostra)
-- [PyGame-Learning-Environment](https://github.com/alirezamika/PyGame-Learning-Environment)
+- [PyGame-Learning-Environment](https://github.com/ntasfi/PyGame-Learning-Environment)
 
 
 # Usage
