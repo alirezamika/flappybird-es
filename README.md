@@ -11,8 +11,6 @@ After ~5000 iterations, it won't lose!
 
 # Dependencies
 
-- [tensorflow](https://www.tensorflow.org/)
-- [keras](https://github.com/fchollet/keras)
 - [evostra](https://github.com/alirezamika/evostra)
 - [PyGame-Learning-Environment](https://github.com/ntasfi/PyGame-Learning-Environment)
 
@@ -26,8 +24,8 @@ from flappy import *
 
 agent = Agent()
 
-# the pre-trained weights are saved into 'one_dense_64.h5' which you can use.
-agent.load('one_dense_64.h5')
+# the pre-trained weights are saved into 'weights.pkl' which you can use.
+agent.load('weights.pkl')
 
 # play one episode
 agent.play(1)
