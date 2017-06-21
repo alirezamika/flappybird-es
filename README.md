@@ -4,7 +4,7 @@ This AI agent uses Evolutional Strategies and deep learning models to master the
 
 Read [Evolution Strategies as a Scalable Alternative to Reinforcement Learning](https://blog.openai.com/evolution-strategies/) from OpenAI if you are interested.
 
-After ~5000 iterations, it won't lose!
+After a few hundred iterations, it masters the game.
 
 
 ![demo](http://m.UploadEdit.com/ba3s/1497637053928.gif)
