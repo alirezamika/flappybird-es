@@ -11,27 +11,30 @@ class Agent:
 
     AGENT_HISTORY_LENGTH = 1
     NUM_OF_ACTIONS = 2
-    POPULATION_SIZE = 16
+    POPULATION_SIZE = 15
     EPS_AVG = 1
     SIGMA = 0.1
-    LEARNING_RATE = 0.01
+    LEARNING_RATE = 0.03
+    INITIAL_EXPLORATION = 0.0
+    FINAL_EXPLORATION = 0.0
+    EXPLORATION_DEC_STEPS = 100000
 
-    
+
     def __init__(self):
-        np.random.seed(0)
         self.model = Model()
-        self.game = FlappyBird(pipe_gap=120)
+        self.game = FlappyBird(pipe_gap=125)
         self.env = PLE(self.game, fps=30, display_screen=False)
         self.env.init()
         self.env.getGameState = self.game.getGameState
         self.es = EvolutionStrategy(self.model.get_weights(), self.get_reward, self.POPULATION_SIZE, self.SIGMA, self.LEARNING_RATE)
+        self.exploration = self.INITIAL_EXPLORATION
 
 
     def get_predicted_action(self, sequence):
         prediction = self.model.predict(np.array(sequence))
         x = np.argmax(prediction)
         return 119 if x == 1 else None
-    
+
 
     def load(self, filename='weights.pkl'):
         with open(filename,'rb') as fp:
@@ -70,7 +73,7 @@ class Agent:
                     print "score: %d" % score
         self.env.display_screen = False
 
-    
+
     def train(self, iterations):
         self.es.run(iterations, print_step=1)
 
@@ -85,13 +88,13 @@ class Agent:
             sequence = [observation]*self.AGENT_HISTORY_LENGTH
             done = False
             while not done:
-                action = self.get_predicted_action(sequence)
+                self.exploration = max(self.FINAL_EXPLORATION, self.exploration - self.INITIAL_EXPLORATION/self.EXPLORATION_DEC_STEPS)
+                if random.random() < self.exploration:
+                    action = random.choice([119, None])
+                else:
+                    action = self.get_predicted_action(sequence)
                 reward = self.env.act(action)
-                if reward > 0:
-                    reward = 100
-                elif reward < 0:
-                    reward = -1
-                reward += random.choice([-0.01, 0.01])
+                reward += random.choice([0.0001, -0.0001])
                 total_reward += reward
                 observation = self.get_observation()
                 sequence = sequence[1:]

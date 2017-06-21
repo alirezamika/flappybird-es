@@ -2,11 +2,14 @@ import numpy as np
 
 
 class Model(object):
-    weights = [np.random.randn(8, 16), np.random.randn(16, 16), np.random.randn(16, 2)]
+
+    def __init__(self):
+        self.weights = [np.random.randn(8, 500), np.random.randn(500, 2), np.random.randn(1, 500)]
+
     def predict(self, inp):
-        out = inp
-        for layer in self.weights:
-            out = np.dot(out, layer)
+        out = np.expand_dims(inp.flatten(), 0)
+        out = np.dot(out, self.weights[0]) + self.weights[-1]
+        out = np.dot(out, self.weights[1])
         return out[0]
 
     def get_weights(self):
