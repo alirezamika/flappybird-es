@@ -1,6 +1,6 @@
 # AI Learning to play Flappy Bird using Evolution Strategies
 
-This agent uses Evolutional Strategies and deep learning models to master the Flappy Bird game.
+This AI agent uses Evolutional Strategies and deep learning models to master the Flappy Bird game.
 
 Read [Evolution Strategies as a Scalable Alternative to Reinforcement Learning](https://blog.openai.com/evolution-strategies/) from OpenAI if you are interested.
 
