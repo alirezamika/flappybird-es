@@ -1,18 +1,16 @@
 # AI Learning to play Flappy Bird using Evolution Strategies
 
-This agent uses Evolutional Strategies and deep learning models to master the Flappy Bird game.
+This AI agent uses Evolutional Strategies and deep learning models to master the Flappy Bird game.
 
 Read [Evolution Strategies as a Scalable Alternative to Reinforcement Learning](https://blog.openai.com/evolution-strategies/) from OpenAI if you are interested.
 
-After ~5000 iterations, it won't lose!
+After a few hundred iterations, it masters the game.
 
 
 ![demo](http://m.UploadEdit.com/ba3s/1497637053928.gif)
 
 # Dependencies
 
-- [tensorflow](https://www.tensorflow.org/)
-- [keras](https://github.com/fchollet/keras)
 - [evostra](https://github.com/alirezamika/evostra)
 - [PyGame-Learning-Environment](https://github.com/ntasfi/PyGame-Learning-Environment)
 
@@ -26,8 +24,8 @@ from flappy import *
 
 agent = Agent()
 
-# the pre-trained weights are saved into 'one_dense_64.h5' which you can use.
-agent.load('one_dense_64.h5')
+# the pre-trained weights are saved into 'weights.pkl' which you can use.
+agent.load('weights.pkl')
 
 # play one episode
 agent.play(1)
