@@ -7,7 +7,7 @@ Read [Evolution Strategies as a Scalable Alternative to Reinforcement Learning](
 After a few hundred iterations, it masters the game.
 
 
-![demo](http://m.UploadEdit.com/ba3s/1497637053928.gif)
+![demo](http://uupload.ir/files/ze4o_ezgif.com-gif-maker.gif)
 
 # Dependencies
 
